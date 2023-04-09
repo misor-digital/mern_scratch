@@ -2,14 +2,13 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   require('dotenv').config();
 }
 
-const config  = require('./server/config');
-const dbUri   = process.env.DB_URI;
+const app   = require('./server');
+const dbUri = process.env.DB_URI;
 
-
-config.database.connect(dbUri)
+app.database.connect(dbUri)
   .then(() => {
     console.log('Database: Connection successful');
 
-    require('./server/app');
+    app.server.start();
   })
   .catch(console.error);
