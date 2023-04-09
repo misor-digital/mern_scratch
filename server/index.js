@@ -5,15 +5,18 @@ const cp      = require('cookie-parser');
 
 const config = require('./config');
 
-const PORT = process.env.PORT;
+const PORT       = process.env.PORT;
+const staticPath = '/../static/dist';
 
 const app = express();
 
-app.get('/', (req, res) => res.sendFile(path.join(`${__dirname}/../client/public/index.html`)));
+app.use(express.static(path.join(`${__dirname}${staticPath}`)));
+
+app.get('/', (req, res) => res.sendFile(path.join(`${__dirname}${staticPath}/index.html`)));
 
 const start = () => { app.listen(PORT, () => console.log(`Server @ PORT: ${PORT}`)); };
 
 module.exports = {
-  server: { start },
-  database: config.database,
+  server   : { start },
+  database : config.database,
 };
