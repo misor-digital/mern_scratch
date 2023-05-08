@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const ButtonLink = (props) => {
+export const ButtonLink = (props) => {
   const {
     path,
     title,
@@ -16,5 +16,3 @@ const ButtonLink = (props) => {
     </Link>
   );
 };
-
-export default ButtonLink;

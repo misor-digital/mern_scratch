@@ -1,4 +1,4 @@
-const ButtonSubmit = (props) => {
+export const ButtonSubmit = (props) => {
   let {
     className,
     title = 'Submit'
@@ -13,5 +13,3 @@ const ButtonSubmit = (props) => {
     </button>
   );
 };
-
-export default ButtonSubmit;

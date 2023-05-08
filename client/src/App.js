@@ -1,11 +1,17 @@
-const App = () => {
-  return (
-    <div>
-      <h1>This is MERN from scratch</h1>
-      <h1>This is MERN from scratch</h1>
-      <h1>This is MERN from scratch</h1>
-    </div>
-    );
-}
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-export default App;
+import { Home }     from './Home';
+import { BookList } from './BookList';
+
+export const App = () => {
+  return (
+    <Router>
+      <div>
+        <Routes>
+          <Route path = '/'      element = { <Home />} exact />
+          <Route path = '/books' element = { BookList} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
